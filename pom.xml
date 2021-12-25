@@ -7,10 +7,60 @@
     <groupId>com.kaffeestack</groupId>
     <artifactId>spring-boot-two-data-source-config-demo-app</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>demo-web</module>
+        <module>demo-dao</module>
+        <module>demo-service</module>
+    </modules>
+    <packaging>pom</packaging>
+
+
+    <name>spring-boot-two-data-source-config-demo-app</name>
+    <description>
+        This demo application is to two configure two data sources in spring boot application running on tomcat
+    </description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.maven.plugin.version>2.6.1</spring.boot.maven.plugin.version>
+        <spring.boot.dependencies.version>2.6.1</spring.boot.dependencies.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.dependencies.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.maven.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
